@@ -1,5 +1,5 @@
-import os
 import json
+import os
 import random
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ChatActions
@@ -7,8 +7,12 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
 
-API_TOKEN = os.getenv("API_TOKEN")
-ADMIN_USERNAME = '@deletedonf'
+# Load token from environment variable
+API_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "@deletedonf")  # fallback value
+
+if not API_TOKEN:
+    raise ValueError("⚠️ BOT_TOKEN environment variable is missing!")
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
