@@ -3,14 +3,175 @@
     "id": "fake_001",
     "name": "Sadia",
     "age": "22",
-    "bio": "I love books and coffee \u2615",
-    "photo": "https://i.imgur.com/9n0ZPzL.jpg"
+    "bio": "Love deep talks and long nights ✨",
+    "photo": "https://i.imgur.com/G6s9iCj.jpg"
   },
   {
     "id": "fake_002",
-    "name": "Rafi",
+    "name": "Jannat",
+    "age": "21",
+    "bio": "Netflix + Pizza = Perfect date 🍕🎬",
+    "photo": "https://i.imgur.com/R8Toc5d.jpg"
+  },
+  {
+    "id": "fake_003",
+    "name": "Tania",
+    "age": "23",
+    "bio": "Flirty but loyal 😉",
+    "photo": "https://i.imgur.com/d4OC1Zk.jpg"
+  },
+  {
+    "id": "fake_004",
+    "name": "Mahi",
+    "age": "20",
+    "bio": "Bookworm with a wild side 📚🔥",
+    "photo": "https://i.imgur.com/FKXYsdB.jpg"
+  },
+  {
+    "id": "fake_005",
+    "name": "Nishat",
     "age": "24",
-    "bio": "Gym freak \ud83d\udcaa",
-    "photo": "https://i.imgur.com/VO3gG0R.jpg"
+    "bio": "Catch flights, not feelings ✈️",
+    "photo": "https://i.imgur.com/U8VUN9B.jpg"
+  },
+  {
+    "id": "fake_006",
+    "name": "Ruba",
+    "age": "19",
+    "bio": "18+ conversations only 😏",
+    "photo": "https://i.imgur.com/tAYwAcN.jpg"
+  },
+  {
+    "id": "fake_007",
+    "name": "Nusrat",
+    "age": "22",
+    "bio": "Call me maybe? 📞💋",
+    "photo": "https://i.imgur.com/3Z2ah0g.jpg"
+  },
+  {
+    "id": "fake_008",
+    "name": "Elma",
+    "age": "25",
+    "bio": "Late night talks & cuddles 💕",
+    "photo": "https://i.imgur.com/K5K1mEm.jpg"
+  },
+  {
+    "id": "fake_009",
+    "name": "Taniya",
+    "age": "23",
+    "bio": "Dance in the dark 💃",
+    "photo": "https://i.imgur.com/1V9b5bF.jpg"
+  },
+  {
+    "id": "fake_010",
+    "name": "Riya",
+    "age": "18",
+    "bio": "Young & curious 👀",
+    "photo": "https://i.imgur.com/X8vnZhQ.jpg"
+  },
+  {
+    "id": "fake_011",
+    "name": "Mim",
+    "age": "21",
+    "bio": "Coffee lover and midnight texter ☕📱",
+    "photo": "https://i.imgur.com/h9G8qvN.jpg"
+  },
+  {
+    "id": "fake_012",
+    "name": "Sanjida",
+    "age": "24",
+    "bio": "Classy, sassy & a bit bad-assy 😘",
+    "photo": "https://i.imgur.com/B5cRVoJ.jpg"
+  },
+  {
+    "id": "fake_013",
+    "name": "Mousumi",
+    "age": "22",
+    "bio": "Drama queen 👑",
+    "photo": "https://i.imgur.com/lbZ3h3m.jpg"
+  },
+  {
+    "id": "fake_014",
+    "name": "Arpita",
+    "age": "23",
+    "bio": "Insta model in the making 📸",
+    "photo": "https://i.imgur.com/DHeND06.jpg"
+  },
+  {
+    "id": "fake_015",
+    "name": "Pori",
+    "age": "19",
+    "bio": "Small talk? Nah, let’s talk dirty 😈",
+    "photo": "https://i.imgur.com/JgDNwWI.jpg"
+  },
+  {
+    "id": "fake_016",
+    "name": "Nitu",
+    "age": "26",
+    "bio": "Older, bolder, and hotter 🔥",
+    "photo": "https://i.imgur.com/yrPHExV.jpg"
+  },
+  {
+    "id": "fake_017",
+    "name": "Maliha",
+    "age": "20",
+    "bio": "DM me if you dare 😉",
+    "photo": "https://i.imgur.com/Uk0RL3e.jpg"
+  },
+  {
+    "id": "fake_018",
+    "name": "Farzana",
+    "age": "24",
+    "bio": "I flirt like it’s my job 😅",
+    "photo": "https://i.imgur.com/mzFQhN6.jpg"
+  },
+  {
+    "id": "fake_019",
+    "name": "Sumi",
+    "age": "23",
+    "bio": "Tired of good boys 🖤",
+    "photo": "https://i.imgur.com/fF9P4b1.jpg"
+  },
+  {
+    "id": "fake_020",
+    "name": "Maliha",
+    "age": "22",
+    "bio": "Let’s talk dirty then delete the chat 🤫",
+    "photo": "https://i.imgur.com/I3Zp91j.jpg"
+  },
+  {
+    "id": "fake_021",
+    "name": "Kanta",
+    "age": "21",
+    "bio": "Don’t fall for me... I trip easily 😅",
+    "photo": "https://i.imgur.com/M1R3sLE.jpg"
+  },
+  {
+    "id": "fake_022",
+    "name": "Priyanka",
+    "age": "22",
+    "bio": "No makeup, just confidence 💄💅",
+    "photo": "https://i.imgur.com/XCToEb2.jpg"
+  },
+  {
+    "id": "fake_023",
+    "name": "Shila",
+    "age": "20",
+    "bio": "Catch me if you can 🏃‍♀️",
+    "photo": "https://i.imgur.com/VKZl29h.jpg"
+  },
+  {
+    "id": "fake_024",
+    "name": "Tumpa",
+    "age": "23",
+    "bio": "Cute face, dirty mind 😝",
+    "photo": "https://i.imgur.com/VISiGEX.jpg"
+  },
+  {
+    "id": "fake_025",
+    "name": "Trisha",
+    "age": "25",
+    "bio": "Hot, honest, and always hungry 🍔❤️",
+    "photo": "https://i.imgur.com/4MZ3v1v.jpg"
   }
 ]
