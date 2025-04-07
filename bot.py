@@ -1,9 +1,9 @@
 import os
-import random
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
-from utils import load_users, save_users
 import json
+import random
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
+from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, MessageHandler, ContextTypes, filters
+from utils import load_users, save_users
 
 TOKEN = os.getenv("BOT_TOKEN")
 
@@ -15,11 +15,22 @@ chat_pairs = {}
 with open("fake_users.json") as f:
     fake_users = json.load(f)
 
+ads = [
+    "📢 Try our premium version for more features!",
+    "🔥 Follow us on Instagram for daily matches!",
+    "💖 Sponsored: Meet people near you — now with location-based matching!"
+]
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.effective_user.id)
-    users[user_id] = {'step': 'name'}
-    save_users(users)
-    await update.message.reply_text("👋 Welcome to the Dating Bot! What's your name?")
+    args = context.args
+
+    if user_id not in users:
+        users[user_id] = {"step": "name", "ref_by": args[0] if args else None}
+        save_users(users)
+        await update.message.reply_text("👋 Welcome! What's your name?")
+    else:
+        await update.message.reply_text("👋 Welcome back! Use /find to match.")
 
 async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.effective_user.id)
@@ -50,29 +61,34 @@ async def message_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text("📝 Tell us about yourself:")
         elif step == 'bio':
             users[user_id]['step'] = 'done'
-            await update.message.reply_text("✅ Registration complete! Type /find to start chatting.")
-
+            await update.message.reply_text("✅ Profile saved! Click below to find a match:",
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❤️ Find Match", callback_data="find")]]))
         save_users(users)
 
-async def find(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = str(update.effective_user.id)
+async def find_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    user_id = str(query.from_user.id)
 
     if user_id in chat_pairs:
-        await update.message.reply_text("⚠️ You're already in a chat. Type /stop to leave it.")
+        await query.message.reply_text("⚠️ You're already in a chat. Type /stop to leave it.")
         return
+
+    # Ad display
+    if random.random() < 0.3:
+        await query.message.reply_text(random.choice(ads))
 
     if len(searching) > 0:
         partner_id = searching.pop(0)
         chat_pairs[user_id] = partner_id
         chat_pairs[partner_id] = user_id
         await context.bot.send_message(int(partner_id), "❤️ Matched with someone!")
-        await update.message.reply_text("❤️ Matched with someone!")
+        await query.message.reply_text("❤️ Matched with someone!")
     else:
         fake = random.choice(fake_users)
         fake_id = fake['id']
         chat_pairs[user_id] = fake_id
         chat_pairs[fake_id] = user_id
-
         await context.bot.send_photo(chat_id=int(user_id), photo=fake['photo'])
         await context.bot.send_message(user_id, f"❤️ Matched with {fake['name']} ({fake['age']})\n📝 {fake['bio']}")
         await context.bot.send_message(user_id, random.choice(["Hi 😊", "Hey! How are you?", "Nice to meet you! "]))
@@ -89,10 +105,9 @@ async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("❌ You're not in a chat.")
 
 app = ApplicationBuilder().token(TOKEN).build()
-
 app.add_handler(CommandHandler("start", start))
-app.add_handler(CommandHandler("find", find))
 app.add_handler(CommandHandler("stop", stop))
+app.add_handler(CallbackQueryHandler(find_callback, pattern="find"))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, message_handler))
 
 print("🚀 Bot is running...")
