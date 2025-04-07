@@ -1,0 +1,4 @@
+### 📁 Data Folder
+
+All registered users are saved in `data/users.json`.  
+Make sure this file exists with `{}` before running the bot.
