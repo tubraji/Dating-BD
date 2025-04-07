@@ -1,1 +1,3 @@
 python-telegram-bot==20.3
+aiogram==2.25.2
+echo aiogram==2.25.2 > requirements.txt
