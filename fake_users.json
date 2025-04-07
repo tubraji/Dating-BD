@@ -1,0 +1,16 @@
+[
+  {
+    "id": "fake_001",
+    "name": "Sadia",
+    "age": "22",
+    "bio": "I love books and coffee \u2615",
+    "photo": "https://i.imgur.com/9n0ZPzL.jpg"
+  },
+  {
+    "id": "fake_002",
+    "name": "Rafi",
+    "age": "24",
+    "bio": "Gym freak \ud83d\udcaa",
+    "photo": "https://i.imgur.com/VO3gG0R.jpg"
+  }
+]
