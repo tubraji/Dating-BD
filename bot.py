@@ -34,6 +34,24 @@ try:
 except:
     ads = []
 
+# === Add Fake Users if none exist ===
+FAKE_USER_COUNT = 25
+if not users:
+    fake_names = ["Tania", "Mimi", "Sadia", "Nusrat", "Lamia", "Farzana", "Tumpa", "Faria", "Rita", "Sinthia",
+                  "Samiha", "Nusrat", "Mehzabin", "Oni", "Shanta", "Shorna", "Sadia", "Riya", "Nishi", "Mahi",
+                  "Ruma", "Poly", "Toma", "Sonia", "Ayesha"]
+    for i in range(FAKE_USER_COUNT):
+        user_id = f"fake_{i+1}"
+        users[user_id] = {
+            "name": fake_names[i % len(fake_names)],
+            "age": str(random.randint(18, 30)),
+            "gender": "Female",
+            "bio": "Just looking to chat ❤️",
+            "partner": None
+        }
+    with open("users.json", "w") as f:
+        json.dump(users, f)
+
 # Registration States
 class Register(StatesGroup):
     name = State()
