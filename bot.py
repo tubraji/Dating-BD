@@ -178,7 +178,10 @@ async def find_partner(msg: types.Message):
     if users[user_id].get("partner"):
         await msg.answer("You're already in a chat.")
         return
-    for uid, data in users.items():
+    # Shuffle to randomize
+    candidate_users = list(users.items())
+    random.shuffle(candidate_users)
+    for uid, data in candidate_users:
         if uid != user_id and not data.get("partner"):
             users[user_id]["partner"] = uid
             users[uid]["partner"] = user_id
@@ -187,6 +190,7 @@ async def find_partner(msg: types.Message):
             await bot.send_message(user_id, "🔗 You're connected!", reply_markup=get_chat_buttons())
             return
     await msg.answer("❌ No one available. Try again soon.")
+
 
 @dp.callback_query_handler(lambda c: c.data in ["next", "stop"])
 async def handle_buttons(callback: types.CallbackQuery):
