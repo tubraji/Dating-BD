@@ -66,8 +66,9 @@ def save_ads():
         json.dump(ads, f)
 
 # Commands
-@dp.message_handler(commands=['start'])
-async def start_cmd(msg: types.Message):
+@dp.message_handler(commands=['start'], state="*")
+async def start_cmd(msg: types.Message, state: FSMContext):
+    await state.finish()  # এই লাইন যুক্ত করো, আগের সব state cancel করার জন্য
     args = msg.get_args()
     user_id = str(msg.from_user.id)
     if user_id not in users:
@@ -85,6 +86,7 @@ async def start_cmd(msg: types.Message):
         await Register.name.set()
     else:
         await msg.answer("You're already registered. Use /find to start chatting.")
+
 
 @dp.message_handler(state=Register.name)
 async def reg_name(msg: types.Message, state: FSMContext):
